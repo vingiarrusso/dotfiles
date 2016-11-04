@@ -21,6 +21,8 @@ call vundle#end()            " required
 
 syntax on
 set background=dark
+" correct solarized colors for terminal vim.  use 16 if terminal has solarized
+" set as scheme.  if not, use 256
 let g:solarized_termcolors=16
 colorscheme solarized
 autocmd StdinReadPre * let s:std_in=1
@@ -30,6 +32,8 @@ map <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+" for large codebase, maxfiles needs to be set to 0 to correctly be able to
+" search across whole project
 let g:ctrlp_max_files=0
 let mapleader=" "
 set laststatus=2
@@ -48,4 +52,4 @@ autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 
 " ignore windows ^M line endings
-match Ignore /\r$
+match Ignore /\r$/
